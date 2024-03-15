@@ -1,0 +1,23 @@
+name: Assign Contributor Reviewers
+
+on:
+  pull_request:
+    types: [opened, reopened]
+    branches:
+      - production
+      - dev
+
+jobs:
+  assign-reviewers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hkusu/review-assign-action@v1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          assignees: ${{ github.actor }} # This will assign the PR author as an assignee
+          reviewers: TickerDev, thefourcraft
+          max-num-of-reviewers: 2 # Optional: To randomly select reviewers, adjust the number as needed
+          draft-keyword: wip # Optional: Specify a keyword for draft PRs
+          ready-comment: 'Ready for review :ok: <reviewers>' # Optional: Custom message when PR is ready for review
+          merged-comment: 'It was merged. Thanks for your review :wink: <reviewers>' # Optional: Custom message when PR is merged
+          bot-accounts: dependabot[bot], another-bot # Optional: Specify bot accounts to exclude
