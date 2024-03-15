@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'הַדּוֹקוֹמֶנְטַצְיָה הָעִבְרִית',
+  title: 'בדיקה!',
   tagline: 'פרויקט קהילתי לקידום תכנות אצל צעירים',
   favicon: 'img/icon.ico',
 
