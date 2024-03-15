@@ -105,6 +105,10 @@ const config: Config = {
               label: 'IMS-Network',
               href: 'https://ims-network.net',
             },
+             {
+              label: 'Roblox Studios IL',
+              href: 'https://discord.com/invite/roblox-studio-il-1098908799340908565',
+            },
 
           ],
         },
@@ -118,6 +122,10 @@ const config: Config = {
             {
               label: 'גיטהאב',
               href: 'https://github.com/IMS-Network/Israel-roblox-docs',
+            },
+            {
+              label: 'Illustrations by Storyset',
+              href: 'https://storyset.com/',
             },
           ],
         },
