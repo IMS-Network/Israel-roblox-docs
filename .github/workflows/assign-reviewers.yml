@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Approve and Merge PR
-        if: contains(fromJson('["TickerDev", "thefourcraft"]'), github.event.comment.user.login)
+        if: contains(fromJson('["TickerDev", "thefourcraft", "avivzusim"]'), github.event.comment.user.login)
         run: |
           PR_NUMBER=$(echo "${{ github.event.issue.pull_request.url }}" | grep -oP '(?<=pulls/)\d+')
           gh pr review "$PR_NUMBER" --approve
