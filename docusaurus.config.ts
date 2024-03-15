@@ -1,22 +1,22 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'הַדּוֹקוֹמֶנְטַצְיָה הָעִבְרִית',
+  tagline: 'פרויקט קהילתי לקידום תכנות אצל צעירים',
+  favicon: 'img/icon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://רובלוקס.גיימינג.ישראל',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  // organizationName: 'facebook', // Usually your GitHub org/user name.
+  // projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -25,8 +25,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'he',
+    locales: ['he'],
   },
 
   presets: [
@@ -37,15 +37,15 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -56,11 +56,11 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/icon.png',
     navbar: {
-      title: 'My Site',
+      title: 'הַדּוֹקוֹמֶנְטַצְיָה הָעִבְרִית • רובלוקס',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -68,11 +68,11 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'דוקיומנטציה',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: '/blog', label: 'בלוג', position: 'left' },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/IMS-Network/Israel-roblox-docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -82,46 +82,47 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'פרויקט על ידי',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'גיימינג ישראל',
+              href: 'https://גיימינג.ישראל',
+            },
+            {
+              label: 'ארגון Niro Team',
+              href: 'https://niro.team',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'קהילות תומכות',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'רובלוקס ישראל',
+              href: 'https://discord.gg/robloxisrael',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'IMS-Network',
+              href: 'https://ims-network.net',
             },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
+
           ],
         },
         {
-          title: 'More',
+          title: 'עוד',
           items: [
             {
-              label: 'Blog',
+              label: 'בלוג',
               to: '/blog',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'גיטהאב',
+              href: 'https://github.com/IMS-Network/Israel-roblox-docs',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `©️ זכויות שמורות לפרויקט "הַדּוֹקוֹמֶנְטַצְיָה הָעִבְרִית" על ידי גיימינג ישראל בשת"פ עם Niro Team`,
     },
     prism: {
       theme: prismThemes.github,
