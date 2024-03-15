@@ -124,7 +124,7 @@ const config: Config = {
               href: 'https://github.com/IMS-Network/Israel-roblox-docs',
             },
             {
-              label: 'Illustrations by Storyset',
+              label: 'אילוסטרציות על ידי Storyset',
               href: 'https://storyset.com/',
             },
           ],
