@@ -9,13 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.issue.pull_request && contains(github.event.comment.body, '✅')
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Approve and Merge PR
-      if: contains(fromJson('["TickerDev", "thefourcraft"]'), github.event.comment.user.login)
-      run: |
-        gh pr review "${{ github.event.issue.pull_request.url }}" --approve
-        gh pr merge "${{ github.event.issue.pull_request.url }}" --merge
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Approve and Merge PR
+        if: contains(fromJson('["TickerDev", "thefourcraft"]'), github.event.comment.user.login)
+        run: |
+          PR_NUMBER=$(echo "${{ github.event.issue.pull_request.url }}" | grep -oP '(?<=pulls/)\d+')
+          gh pr review "$PR_NUMBER" --approve
+          gh pr merge "$PR_NUMBER" --merge
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
