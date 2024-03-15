@@ -1,23 +1,47 @@
-name: Assign Contributor Reviewers
+name: External Contributor Approval
 
 on:
-  pull_request:
-    types: [opened, reopened]
-    branches:
-      - production
-      - dev
+  issue_comment:
+    types: [created, edited]
+  
 
 jobs:
-  assign-reviewers:
+  external-approval:
     runs-on: ubuntu-latest
+    if: github.event.issue.pull_request != '' # Only run if the comment is on a PR
     steps:
-      - uses: hkusu/review-assign-action@v1
+      - name: Check for approval emoji
+        uses: actions/github-script@v5
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-          assignees: ${{ github.actor }} # This will assign the PR author as an assignee
-          reviewers: TickerDev, thefourcraft
-          max-num-of-reviewers: 2 # Optional: To randomly select reviewers, adjust the number as needed
-          draft-keyword: wip # Optional: Specify a keyword for draft PRs
-          ready-comment: 'Ready for review :ok: <reviewers>' # Optional: Custom message when PR is ready for review
-          merged-comment: 'It was merged. Thanks for your review :wink: <reviewers>' # Optional: Custom message when PR is merged
-          bot-accounts: dependabot[bot], another-bot # Optional: Specify bot accounts to exclude
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const approvedContributors = ['TickerDev', 'thefourcraft']; // List of GitHub usernames allowed to approve
+            const commentBody = context.payload.comment.body;
+            const commenter = context.payload.comment.user.login;
+            const issueNumber = context.issue.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const prNumber = context.payload.issue.number;
+
+            // Check if the commenter is an approved contributor and the comment contains the ✅ emoji
+            if (approvedContributors.includes(commenter) && commentBody.includes('✅')) {
+              // Optionally add an "approved" label to the PR
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                labels: ['approved'] // Ensure this label exists or is relevant in your repository
+              });
+              
+              // Attempt to merge the PR
+              try {
+                const mergeResponse = await github.rest.pulls.merge({
+                  owner,
+                  repo,
+                  pull_number: prNumber
+                });
+                console.log(`PR #${prNumber} merged successfully: ${mergeResponse.data.message}`);
+              } catch (error) {
+                console.log(`Failed to merge PR #${prNumber}: ${error.message}`);
+              }
+            }
