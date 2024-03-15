@@ -1,0 +1,22 @@
+name: Auto-Approve and Merge PR on Comment
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  approve-and-merge:
+    runs-on: ubuntu-latest
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '✅')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Approve and Merge PR
+        if: contains(fromJson('["TickerDev", "thefourcraft"]'), github.event.comment.user.login)
+        run: |
+          PR_NUMBER=$(echo "${{ github.event.issue.pull_request.url }}" | grep -oP '(?<=pulls/)\d+')
+          gh pr review "$PR_NUMBER" --approve
+          gh pr merge "$PR_NUMBER" --merge
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
