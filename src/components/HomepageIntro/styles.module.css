@@ -1,0 +1,160 @@
+/* styles.module.css */
+.homepageSectionIntro {
+  background: linear-gradient(rgba(41, 56, 88, 0.3), rgba(19, 31, 55, 0.3));
+  border-bottom: 1px solid #293856;
+  box-sizing: border-box;
+  color: #d7e1f4;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-weight: 200;
+  justify-content: center;
+  letter-spacing: 0.75px;
+  line-height: 26.4px;
+  margin-bottom: 8rem;
+  scrollbar-color: rgb(67, 82, 112) rgba(0, 0, 0, 0);
+  scrollbar-width: auto;
+  word-wrap: break-word;
+}
+
+.homepageContainer {
+  align-items: center;
+  box-sizing: border-box;
+  color: #d7e1f4;
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.75px;
+  line-height: 26.4px;
+  margin: 0px 8rem;
+  max-width: 1140px;
+  row-gap: 1rem;
+  scrollbar-color: rgb(67, 82, 112) rgba(0, 0, 0, 0);
+  scrollbar-width: auto;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.intro {
+  align-items: flex-end;
+  /* background: url("/assets/images/header-9c541e9777c8818d1d54cb6664d471dd.svg") 100% 100% / 45% no-repeat; */
+  box-sizing: border-box;
+  color: #d7e1f4;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-weight: 200;
+  justify-content: space-between;
+  letter-spacing: 0.75px;
+  line-height: 26.4px;
+  scrollbar-color: rgb(67, 82, 112) rgba(0, 0, 0, 0);
+  scrollbar-width: auto;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.introSection {
+  box-sizing: border-box;
+  color: #d7e1f4;
+  font-family: Inter, sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.75px;
+  line-height: 26.4px;
+  margin: 6rem 0px;
+  max-width: 25rem;
+  scrollbar-color: rgb(67, 82, 112) rgba(0, 0, 0, 0);
+  scrollbar-width: auto;
+  word-wrap: break-word;
+}
+
+.introHeader {
+  box-sizing: border-box;
+  color: #f7f9fd;
+  font-family: "Metropolis Semi Bold", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.75px;
+  line-height: 50px;
+  margin: 0px 0px 16px;
+  scrollbar-color: rgb(67, 82, 112) rgba(0, 0, 0, 0);
+  scrollbar-width: auto;
+  word-wrap: break-word;
+}
+
+.introDescription {
+  box-sizing: border-box;
+  color: #d7e1f4;
+  font-family: Inter, sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.75px;
+  line-height: 26.4px;
+  margin: 0px 0px 20px;
+  scrollbar-color: rgb(67, 82, 112) rgba(0, 0, 0, 0);
+  scrollbar-width: auto;
+  word-wrap: break-word;
+}
+
+.introButtons {
+  box-sizing: border-box;
+  color: #d7e1f4;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: Inter, sans-serif;
+  font-weight: 200;
+  gap: 1rem;
+  letter-spacing: 0.75px;
+  line-height: 26.4px;
+  scrollbar-color: rgb(67, 82, 112) rgba(0, 0, 0, 0);
+  scrollbar-width: auto;
+  word-wrap: break-word;
+}
+
+.introButton {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #14cabf;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #3391ff;
+  cursor: pointer;
+  display: inline-block;
+  flex: 1 1 0px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  line-height: 1.5;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.buttonOutline {
+background-color: transparent;
+color: #14cabf;
+border-color: #14cabf;
+}
+
+.buttonPrimary {
+background-color: #14cabf;
+color: #f7f9fd;
+border-color: #14cabf;
+}
+
+.buttonPrimary:hover,
+.buttonOutline:hover {
+color: #f7f9fd;
+background-color: rgba(20, 202, 191, 0.1);
+}
+
+@media (max-width: 996px) {
+.homepageContainer {
+  margin: 0px 2rem;
+}
+
+.intro {
+  background: none;
+}
+}

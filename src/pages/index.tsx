@@ -4,6 +4,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
+import HomepageIntro from "@site/src/components/HomepageIntro";
 
 import styles from "./index.module.css";
 
@@ -37,8 +38,10 @@ export default function Home(): JSX.Element {
       description="Description will go into a meta tag in <head />"
     >
       <HomepageHeader />
+      <HomepageIntro />
       <main>
         <HomepageFeatures />
+       
       </main>
     </Layout>
   );
