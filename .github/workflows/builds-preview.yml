@@ -1,0 +1,41 @@
+name: Fork PR Handler with GitHub CLI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  handle-fork-pr:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.head.repo.fork == true
+    steps:
+      - name: Checkout code from the fork's PR
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+      
+      - name: Create and push new branch
+        run: |
+          NEW_BRANCH="build-${{ github.event.pull_request.number }}"
+          git checkout -b $NEW_BRANCH
+          git push origin $NEW_BRANCH
+
+      - name: Create PR in original repository
+        run: |
+          gh pr create \
+            --title "Automated PR for changes from fork #${{ github.event.pull_request.number }}" \
+            --body "This is an automated PR to merge changes from the fork's PR #${{ github.event.pull_request.number }}" \
+            --base production \
+            --head ${{ github.repository }}:$NEW_BRANCH \
+            --repo ${{ github.repository }} \
+            --label "automated-pr" \
+            --reviewer "team_reviewers" \
+            --assignee "@me"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
