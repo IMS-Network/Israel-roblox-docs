@@ -54,6 +54,15 @@ const config: Config = {
     ],
   ],
 
+  scripts: [ 
+    "https://cdn.enable.co.il/licenses/enable-L14970n18edgjtql-1022-44220/init.js",
+    {
+        src: 'https://analytics.ims-network.net/script.js',
+        async: true,
+        "data-website-id": "6d029622-f15b-4da6-bd7a-450d93edab77",
+    },
+],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/icon.png',
